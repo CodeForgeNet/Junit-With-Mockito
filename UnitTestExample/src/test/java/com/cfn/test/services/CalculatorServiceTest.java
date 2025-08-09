@@ -23,20 +23,23 @@ public class CalculatorServiceTest {
     @Before
     public void beforeEach(){
         System.out.println("Before each test case");
+        counter=0;
     }
 
 
+//    @Test(timeout = 2000) -> if a test case takes time more than 2000 ms then it failed.
     //    Test methods of addTwoNumbers
     @Test
     public void addTwoNumbersTest() {
 
-        for(int i=1; i<=20; i++){
-            counter+=i
+        for(int i=1; i<=100; i++){
+            counter+=i;
         }
 
         System.out.println("Test for addTwoNumbersTest");
         int result = CalculatorService.addTwoNumbers(12, 28);
         int expected = 40;
+        System.out.println("Counter int first test : "+counter);
         Assert.assertEquals(expected, result);
 
         // Actual result
@@ -46,9 +49,15 @@ public class CalculatorServiceTest {
 
     @Test
     public void sumAnyNumbersTest() {
+
+        for(int i=1; i<=20; i++){
+            counter+=i;
+        }
+
         System.out.println("Test for sumAnyNumbersTest");
         int result = CalculatorService.sumAnyNumbers(4, 6, 2, 7, 9);
         int expectedResult = 28;
+        System.out.println("Counter int second test : "+counter);
         Assert.assertEquals(expectedResult, result);
     }
 
